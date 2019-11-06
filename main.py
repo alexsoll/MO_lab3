@@ -32,7 +32,8 @@ def get_intervals():
 
 def func(point):
     x, y = point
-    return np.sin(x) * np.sin(y)
+    #return np.sin(x) * np.sin(y)
+    return x**2 * y**3
 
 
 def makeData(x, y, step):
@@ -49,6 +50,7 @@ def get_derivative():
     x, y = symbols('x y')
     variables = (x, y)
     symbol_func = sin(x) * cos(y)
+    symbol_func = x**2*y**3
     gr = (symbol_func.diff(x), symbol_func.diff(y))
     print("The function's gradient : ", gr)
     print("Enter the point to calculate the gradient")
@@ -60,11 +62,7 @@ def get_derivative():
     derivatives = []
     for variable in variables:
         derivatives.append(diff(symbol_func, variable))
-    print(derivatives)
-    res = ""
-    for item in derivatives:
-        res += str(item)
-    print("The derivative of the function cos(x) * sin(x) is equal to : ", res)
+    print("The derivative of the function cos(x) * sin(x) is equal to : ", derivatives)
 
 
 def main():
